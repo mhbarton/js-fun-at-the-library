@@ -25,7 +25,7 @@ function saveReview(review1, reviews) {
 
 
 function calculatePageCount(bookTitle) {
-  //for each letter in the title
+  //for each letter in the title, starting at the first element, it will multiply by 20
   for(var i = 0; i < bookTitle.length; i++){
     return bookTitle.length * 20
   }
@@ -36,11 +36,19 @@ function writeBook(bookTitle, bookCharacter, genre) {
   return {
     title: bookTitle,
     mainCharacter: bookCharacter,
+    pageCount: calculatePageCount(bookTitle),
     genre: genre,
-    pageCount: 340,
   }
 
+
 };
+
+function editBook(decreasedPageCount) {
+decreasedPageCount.pageCount = decreasedPageCount.pageCount * .75
+return decreasedPageCount.pageCount
+ }
+
+
 
 module.exports = {
   createTitle,
@@ -48,5 +56,5 @@ module.exports = {
   saveReview,
   calculatePageCount,
   writeBook,
-  // editBook
+  editBook
 }
